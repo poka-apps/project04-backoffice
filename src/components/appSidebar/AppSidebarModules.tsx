@@ -1,5 +1,5 @@
-import { Boxes, ChevronRight, CircleGauge, LayoutDashboard, List, Type, Users } from 'lucide-react';
 import type { IHasIcon, IHasOptItems, IHasName, IHasUrl } from '@/interfaces';
+import { ChevronRight, LayoutDashboard, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLocation } from '@/hooks';
 import { ROUTES } from '@/constants';
@@ -24,28 +24,6 @@ const CONSTS = {
       name: 'Utilisateurs',
       url: ROUTES.users,
       icon: Users
-    },
-    {
-      name: 'Nomenclatures',
-      url: ROUTES.nomenclatures.overview.route(),
-      icon: List,
-      items: [
-        {
-          name: "Vue d'ensemble",
-          url: ROUTES.nomenclatures.overview.route(),
-          icon: CircleGauge
-        },
-        {
-          name: 'Marques',
-          url: ROUTES.nomenclatures.brands.route(),
-          icon: Type
-        },
-        {
-          name: 'Équipements',
-          url: ROUTES.nomenclatures.equipments.route(),
-          icon: Boxes
-        }
-      ]
     }
   ] as (IHasName & IHasUrl & IHasIcon & IHasOptItems<IHasName & IHasUrl & IHasIcon>)[]
 };

@@ -1,4 +1,3 @@
-export * from './nomenclatures';
 export * from './dashboard';
 export * from './notFound';
 export * from './login';
