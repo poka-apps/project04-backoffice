@@ -16,8 +16,6 @@ export const ROUTES = {
     },
     base: '/nomenclatures'
   },
-  annonces: '/annonces',
-  garages: '/garages',
   users: '/users',
   login: '/login',
   dashboard: '/',

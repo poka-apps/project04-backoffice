@@ -1,4 +1,4 @@
-import { Boxes, ChevronRight, CircleGauge, LayoutDashboard, List, Newspaper, Type, Users, Warehouse } from 'lucide-react';
+import { Boxes, ChevronRight, CircleGauge, LayoutDashboard, List, Type, Users } from 'lucide-react';
 import type { IHasIcon, IHasOptItems, IHasName, IHasUrl } from '@/interfaces';
 import { Link } from 'react-router-dom';
 import { useLocation } from '@/hooks';
@@ -24,16 +24,6 @@ const CONSTS = {
       name: 'Utilisateurs',
       url: ROUTES.users,
       icon: Users
-    },
-    {
-      name: 'Annonces',
-      url: ROUTES.annonces,
-      icon: Newspaper
-    },
-    {
-      name: 'Garages',
-      url: ROUTES.garages,
-      icon: Warehouse
     },
     {
       name: 'Nomenclatures',

@@ -5,9 +5,7 @@ import {
   LazyOverviewNomenclaturesPage,
   LazyEquipmentsPage,
   LazyDashboardPage,
-  LazyAnnoncesPage,
   LazyNotFoundPage,
-  LazyGaragesPage,
   LazyBrandsPage,
   LazyLoginPage,
   LazyUsersPage,
@@ -27,8 +25,6 @@ export const AppRoutes = () => (
           <Route path={ROUTES.nomenclatures.brands.path} element={<LazyBrandsPage />} />
         </Route>
         {/* #endregion */}
-        <Route path={ROUTES.annonces} element={<LazyAnnoncesPage />} />
-        <Route path={ROUTES.garages} element={<LazyGaragesPage />} />
         <Route path={ROUTES.users} element={<LazyUsersPage />} />
       </Route>
       {/* Auth without layout principal */}
