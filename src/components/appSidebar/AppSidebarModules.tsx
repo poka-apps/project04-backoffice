@@ -63,12 +63,12 @@ export const AppSidebarModules = () => {
       icon: Users,
       module: 'Gestion des membres',
     },
-    {
-      name: 'Utilisateurs',
-      url: ROUTES.users,
-      icon: Users,
-      module: 'Sécurité',
-    }
+    // {
+    //   name: 'Utilisateurs',
+    //   url: ROUTES.users,
+    //   icon: Users,
+    //   module: 'Sécurité',
+    // }
   ] as (IHasModule & IHasName & IHasUrl & IHasIcon & IHasOptItems<IHasName & IHasUrl & IHasIcon>)[];
 
   return (
