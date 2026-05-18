@@ -22,7 +22,9 @@ export const DataTableBody = <TData extends RowData>({ value, columnsLength }: I
                         .getVisibleCells()
                         .map(
                           cell => (
-                            <TableCell key={cell.id}>
+                            <TableCell
+                              key={cell.id}
+                              className={cell?.column?.columnDef?.meta?.className}>
                               {flexRender(cell.column.columnDef.cell, cell.getContext())}
                             </TableCell>
                           )

@@ -3,7 +3,7 @@ import { TableHead, TableHeader, TableRow, } from '../shadcn';
 import type { IHasValue } from '@/interfaces';
 
 export const DataTableHeader = <TData extends RowData>({ value }: IHasValue<HeaderGroup<TData>[]>) => (
-  <TableHeader>
+  <TableHeader className='bg-secondary'>
     {
       value
         .map(
@@ -14,7 +14,9 @@ export const DataTableHeader = <TData extends RowData>({ value }: IHasValue<Head
                   .headers
                   .map(
                     header => (
-                      <TableHead key={header.id}>
+                      <TableHead
+                        key={header.id}
+                        className={header?.column?.columnDef?.meta?.className}>
                         {
                           header.isPlaceholder
                             ? null

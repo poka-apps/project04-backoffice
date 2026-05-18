@@ -171,12 +171,12 @@ export interface IHasId<T = string> {
   id: T;
 }
 
-export interface IHasOptCreatedAt<T = Date> {
-  createdAt?: T;
+export interface IHasOptCreatedOn<T = Date> {
+  createdOn?: T;
 }
 
-export interface IHasCreatedAt<T = Date> {
-  createdAt: T;
+export interface IHasCreatedOn<T = Date> {
+  createdOn: T;
 }
 
 export interface IHasOptUpdatedAt<T = Date> {
@@ -241,4 +241,20 @@ export interface IHasOptItems<T = any> {
 
 export interface IHasItems<T = any> {
   items: T[];
+}
+
+export interface IHasOptFirstName<T = string> {
+  firstName?: T;
+}
+
+export interface IHasFirstName<T = string> {
+  firstName: T;
+}
+
+export interface IHasOptLastName<T = string> {
+  lastName?: T;
+}
+
+export interface IHasLastName<T = string> {
+  lastName: T;
 }
