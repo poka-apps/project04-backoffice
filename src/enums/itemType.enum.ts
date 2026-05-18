@@ -1,0 +1,17 @@
+export enum ItemTypeEnum {
+  car = 'car',
+  motorcycle = 'motorcycle',
+  van = 'van',
+  civilEngineering = 'civilEngineering',
+  wheelRim_Tyre = 'wheelRim_Tyre',
+  accessories = 'accessories',
+  campingCar = 'campingCar',
+  trailer = 'trailer',
+  caravan = 'caravan',
+  bicycle = 'bicycle',
+  tractor = 'tractor',
+  truck = 'truck',
+  buggy = 'buggy',
+  quad = 'quad',
+  ship = 'ship',
+}
