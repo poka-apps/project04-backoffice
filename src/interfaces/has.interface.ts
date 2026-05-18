@@ -35,6 +35,14 @@ export interface IHasName<T = string> {
   name: T;
 }
 
+export interface IHasOptModule<T = string> {
+  module?: T;
+}
+
+export interface IHasModule<T = string> {
+  module: T;
+}
+
 export interface IHasOptPlan<T = string> {
   plan?: T;
 }
