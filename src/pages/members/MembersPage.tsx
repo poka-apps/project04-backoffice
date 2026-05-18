@@ -1,4 +1,4 @@
-import MembersPageDataTable from './MembersPageDataTable';
+import { MembersPageDataTable } from './membersPageDataTable';
 import MembersPageHeader from './MembersPageHeader';
 
 const MembersPage = () => {
