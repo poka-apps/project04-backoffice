@@ -1,7 +1,7 @@
 import { DropdownMenuSeparator, DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel, DropdownMenuItem } from '@/components/shadcn';
-import { BadgeCheck, Bell, CreditCard, LogOut, Sparkles } from 'lucide-react';
 import { AppSidebarUserBanner } from './AppSidebarUserBanner';
 import { useSidebar, useUserConnected } from '@/hooks';
+import { BadgeCheck, LogOut } from 'lucide-react';
 
 export const AppSidebarUserMenus = () => {
 
@@ -29,30 +29,15 @@ export const AppSidebarUserMenus = () => {
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem>
-          <Sparkles />
-          Upgrade to Pro
-        </DropdownMenuItem>
-      </DropdownMenuGroup>
-      <DropdownMenuSeparator />
-      <DropdownMenuGroup>
-        <DropdownMenuItem>
+        <DropdownMenuItem className='cursor-pointer'>
           <BadgeCheck />
-          Account
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <CreditCard />
-          Billing
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Bell />
-          Notifications
+          Compte
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
-      <DropdownMenuItem>
+      <DropdownMenuItem className='cursor-pointer'>
         <LogOut />
-        Log out
+        Se déconnecter
       </DropdownMenuItem>
     </DropdownMenuContent>
   );
