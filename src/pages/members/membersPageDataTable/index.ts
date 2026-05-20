@@ -1,5 +1,9 @@
-import type { IHasCreatedOn, IHasFirstName, IHasId, IHasOptLastName } from '@/interfaces';
+import type { IHasCreatedOn, IHasFirstname, IHasId, IHasOptLastname } from '@/interfaces';
 
 export * from './MembersPageDataTable';
 
-export type Member = IHasId & IHasFirstName & IHasOptLastName & IHasCreatedOn;
+export type Member = 
+IHasId & 
+IHasFirstname & 
+IHasOptLastname & 
+IHasCreatedOn;

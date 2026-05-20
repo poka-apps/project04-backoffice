@@ -6,14 +6,14 @@ import dayjs from 'dayjs';
 
 export const columnsDefinitions = [
   {
-    accessorKey: nameof<Member>('firstName'),
+    accessorKey: nameof<Member>('firstname'),
     header: 'Prénom',
     meta: {
       className: 'min-w-25 px-3'
     }
   },
   {
-    accessorKey: nameof<Member>('lastName'),
+    accessorKey: nameof<Member>('lastname'),
     header: 'Nom',
     meta: {
       className: 'min-w-25 w-full px-3'
@@ -39,8 +39,8 @@ export const MembersPageDataTable = () => {
       columns={columnsDefinitions}
       data={[{
         createdOn: new Date(),
-        lastName: 'Dupont',
-        firstName: 'Jean',
+        lastname: 'Dupont',
+        firstname: 'Jean',
         id: '1',
       }]} />
   );

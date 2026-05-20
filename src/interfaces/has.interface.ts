@@ -243,18 +243,27 @@ export interface IHasItems<T = any> {
   items: T[];
 }
 
-export interface IHasOptFirstName<T = string> {
-  firstName?: T;
+export interface IHasOptFirstname<T = string> {
+  firstname?: T;
 }
 
-export interface IHasFirstName<T = string> {
-  firstName: T;
+export interface IHasFirstname<T = string> {
+  firstname: T;
 }
 
-export interface IHasOptLastName<T = string> {
-  lastName?: T;
+export interface IHasOptLastname<T = string> {
+  lastname?: T;
 }
 
-export interface IHasLastName<T = string> {
-  lastName: T;
+export interface IHasLastname<T = string> {
+  lastname: T;
+}
+
+
+export interface IHasOptNickname<T = string> {
+  nickname?: T;
+}
+
+export interface IHasNickname<T = string> {
+  nickname: T;
 }
