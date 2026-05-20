@@ -2,6 +2,8 @@ import type { TItemType, TSortType } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { IBrand } from './models.interface';
+import type { IPhone } from './phone.interface';
+import type { IAddress } from './address.interface';
 
 export interface IHasOptPassword<T = string> {
   password?: T;
@@ -259,11 +261,26 @@ export interface IHasLastname<T = string> {
   lastname: T;
 }
 
-
 export interface IHasOptNickname<T = string> {
   nickname?: T;
 }
 
 export interface IHasNickname<T = string> {
   nickname: T;
+}
+
+export interface IHasOptPhone<T = IPhone> {
+  phone?: T;
+}
+
+export interface IHasPhone<T = IPhone> {
+  phone: T;
+}
+
+export interface IHasOptAddress<T = IAddress> {
+  address?: T;
+}
+
+export interface IHasAddress<T = IAddress> {
+  address: T;
 }
