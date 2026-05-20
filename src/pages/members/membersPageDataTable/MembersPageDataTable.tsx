@@ -1,10 +1,10 @@
-import type { ColumnDef } from '@tanstack/react-table';
 import { DataTable, DataTableCellValue } from '@/components';
+import type { ColumnDef } from '@tanstack/react-table';
+import type { IAddress, IPhone } from '@/interfaces';
+import type { TNullable } from '@/types';
 import { nameof } from '@/functions';
 import type { Member } from '.';
 import dayjs from 'dayjs';
-import type { TNullable } from '@/types';
-import type { IAddress } from '@/interfaces';
 
 export const columnsDefinitions = [
   {
@@ -32,7 +32,7 @@ export const columnsDefinitions = [
     accessorKey: nameof<Member>('address'),
     header: 'Localité',
     meta: {
-      className: 'min-w-25 w-full px-3'
+      className: 'min-w-25 px-3'
     },
     cell: ({ getValue }) => {
       const address = getValue<TNullable<IAddress>>();
@@ -43,6 +43,14 @@ export const columnsDefinitions = [
 
       return <DataTableCellValue value={`${address.city} (${address.countryCodeISO2})`} />;
     }
+  },
+  {
+    accessorKey: nameof<Member>('phone'),
+    header: 'Téléphone',
+    meta: {
+      className: 'min-w-25 w-full px-3'
+    },
+    cell: ({ getValue }) => <DataTableCellValue value={getValue<TNullable<IPhone>>()?.fullNumber} />
   },
   {
     accessorKey: nameof<Member>('createdOn'),
