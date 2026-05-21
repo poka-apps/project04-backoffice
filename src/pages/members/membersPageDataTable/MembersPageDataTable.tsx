@@ -60,7 +60,7 @@ export const columnsDefinitions = [
     },
     cell: ({ getValue }) => (
       dayjs(getValue<Date>())
-        .format('DD/MM/YYYY')
+        .format('DD/MM/YYYY hh:mm')
     )
   },
 ] as ColumnDef<Member>[];

@@ -16,7 +16,7 @@ axios
     config => {
       const token = localStorage.getItem('access_token')
 
-      if (token) {
+      if (token && !config.headers.Authorization) {
         config.headers = {
           ...config.headers,
           Authorization: `Bearer ${token}`
@@ -40,6 +40,6 @@ axios
         // relancer la requête originale
       }
 
-      return Promise.reject(error)
+      return Promise.reject(error);
     }
   );
