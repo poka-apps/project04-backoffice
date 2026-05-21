@@ -13,10 +13,13 @@ export const DataTable = <TData, TValue>({ columns, data }: DataTableProps<TData
   const { getHeaderGroups, getRowModel } = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });
 
   return (
-    <div className='overflow-auto rounded-sm border max-h-[calc(100vh-130px)]'>
+    <div className='overflow-auto rounded-sm border max-h-[calc(100vh-130px)] flex flex-col'>
       <Table>
-        <DataTableHeader value={getHeaderGroups()} />
+        <DataTableHeader
+          className='sticky top-0 z-10'
+          value={getHeaderGroups()} />
         <DataTableBody
+          className='overflow-y-auto'
           columnsLength={columns.length}
           value={getRowModel()} />
       </Table>

@@ -1,13 +1,13 @@
 import { flexRender, type RowData, type RowModel } from '@tanstack/react-table';
 import { TableBody, TableCell, TableRow } from '../shadcn';
-import type { IHasValue } from '@/interfaces';
+import type { IHasOptClassName, IHasValue } from '@/interfaces';
 
-export const DataTableBody = <TData extends RowData>({ value, columnsLength }: IHasValue<RowModel<TData>> & { columnsLength: number; }) => {
+export const DataTableBody = <TData extends RowData>({ value, columnsLength, className }: IHasValue<RowModel<TData>> & { columnsLength: number; } & IHasOptClassName) => {
 
   const rows = value?.rows ?? [];
 
   return (
-    <TableBody>
+    <TableBody className={className}>
       {
         rows.length
           ? (
