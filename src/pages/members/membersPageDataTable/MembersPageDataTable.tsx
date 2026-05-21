@@ -9,6 +9,7 @@ import dayjs from 'dayjs';
 export const columnsDefinitions = [
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('firstname'),
+    cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
     header: 'Prénom',
     meta: {
       className: 'min-w-25 px-3 font-medium'
@@ -16,6 +17,7 @@ export const columnsDefinitions = [
   },
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('lastname'),
+    cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
     header: 'Nom',
     meta: {
       className: 'min-w-25 px-3 font-medium'
@@ -23,6 +25,7 @@ export const columnsDefinitions = [
   },
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('nickname'),
+    cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
     header: 'Surnom',
     meta: {
       className: 'min-w-25 px-3'
@@ -46,11 +49,11 @@ export const columnsDefinitions = [
   },
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('phone'),
+    cell: ({ getValue }) => <DataTableCellValue value={getValue<TNullable<IPhone>>()?.fullNumber} />,
     header: 'Téléphone',
     meta: {
       className: 'min-w-25 w-full px-3'
-    },
-    cell: ({ getValue }) => <DataTableCellValue value={getValue<TNullable<IPhone>>()?.fullNumber} />
+    }
   },
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('createdOn'),
@@ -59,7 +62,7 @@ export const columnsDefinitions = [
       className: 'min-w-25 px-3'
     },
     cell: ({ getValue }) => (
-      <span className='text-gray-400'>
+      <span className='text-gray-500'>
         {
           dayjs(getValue<Date>())
             .format('DD/MM/YYYY hh:mm')
@@ -69,7 +72,7 @@ export const columnsDefinitions = [
   },
 ] as ColumnDef<TUseQueryGetMembersResponse>[];
 
-export const TUseQueryGetMembersResponsesPageDataTable = () => {
+export const MembersPageDataTable = () => {
 
   const { data } = useQueryGetMembers();
 

@@ -1,7 +1,6 @@
 import type { IHasOptClassName, IHasOptValue } from '@/interfaces';
-import type { ReactNode } from 'react';
 
-export const DataTableCellValue = ({ value, className }: IHasOptValue<ReactNode> & IHasOptClassName) => {
+export const DataTableCellValue = ({ value, className }: IHasOptValue<any> & IHasOptClassName) => {
 
   if (!value) {
     return (
