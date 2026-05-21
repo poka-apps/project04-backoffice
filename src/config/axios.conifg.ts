@@ -2,7 +2,7 @@ import { ENV } from '@/constants';
 import axiosRoot from 'axios';
 
 export const axios = axiosRoot.create({
-  baseURL: ENV.baseApi,
+  baseURL: `${ENV.baseApi}/api`,
   headers: {
     'Content-Type': 'application/json',
     'Accept-Language': 'fr'
@@ -14,7 +14,7 @@ axios
   .request
   .use(
     config => {
-      const token = localStorage.getItem('access_token')
+      const token = localStorage.getItem('access_token');
 
       if (token && !config.headers.Authorization) {
         config.headers = {

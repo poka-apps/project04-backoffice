@@ -1,20 +1,28 @@
 import type { INomenclature, IHasType } from '@/interfaces';
 import type { TNomenclatureType } from '@/types';
-import useSWR from 'swr';
+import { useQuery } from '@tanstack/react-query';
+import { axios } from '@/config';
 
 type TResponse<TId = string, TData = any> = INomenclature<TId, TData>[];
 
 export const useQueryGetNomenclatures = <TId = string, TData = any>(params: IHasType<TNomenclatureType>) => {
 
-  const { isLoading, error, mutate, data } = useSWR<TResponse<TId, TData>>(`/nomenclatures?${new URLSearchParams(params as any)}`, { revalidateOnFocus: false });
+  const { data, isLoading, error, refetch } = useQuery<TResponse<TId, TData>>({
+    queryKey: ['nomenclatures', params.type],
+    queryFn: ({ queryKey: [, type] }) => (
+      axios
+        .get<TResponse<TId, TData>>(`/nomenclatures/${type}`)
+        .then(l => l.data)
+    ),
+  });
 
-  const refresh = () => mutate();
+  const refresh = () => refetch();
 
   return ({
-    nomenclatures: data ?? [],
     isLoading,
     refresh,
-    error
+    error,
+    data
   });
 
 };

@@ -1,2 +1,2 @@
 export * from './useQueryGetNomenclatures';
-export * from './useQueryGetInfo';
+export * from './useQueryGetHealth';
