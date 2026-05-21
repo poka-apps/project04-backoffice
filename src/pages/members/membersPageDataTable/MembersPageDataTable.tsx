@@ -1,35 +1,35 @@
+import { useQueryGetMembers, type TUseQueryGetMembersResponse } from '@/hooks/queries';
 import { DataTable, DataTableCellValue } from '@/components';
 import type { ColumnDef } from '@tanstack/react-table';
 import type { IAddress, IPhone } from '@/interfaces';
 import type { TNullable } from '@/types';
 import { nameof } from '@/functions';
-import type { Member } from '.';
 import dayjs from 'dayjs';
 
 export const columnsDefinitions = [
   {
-    accessorKey: nameof<Member>('firstname'),
+    accessorKey: nameof<TUseQueryGetMembersResponse>('firstname'),
     header: 'Prénom',
     meta: {
       className: 'min-w-25 px-3 font-medium'
     }
   },
   {
-    accessorKey: nameof<Member>('lastname'),
+    accessorKey: nameof<TUseQueryGetMembersResponse>('lastname'),
     header: 'Nom',
     meta: {
       className: 'min-w-25 px-3 font-medium'
     }
   },
   {
-    accessorKey: nameof<Member>('nickname'),
+    accessorKey: nameof<TUseQueryGetMembersResponse>('nickname'),
     header: 'Surnom',
     meta: {
       className: 'min-w-25 px-3'
     }
   },
   {
-    accessorKey: nameof<Member>('address'),
+    accessorKey: nameof<TUseQueryGetMembersResponse>('address'),
     header: 'Localité',
     meta: {
       className: 'min-w-25 px-3'
@@ -45,7 +45,7 @@ export const columnsDefinitions = [
     }
   },
   {
-    accessorKey: nameof<Member>('phone'),
+    accessorKey: nameof<TUseQueryGetMembersResponse>('phone'),
     header: 'Téléphone',
     meta: {
       className: 'min-w-25 w-full px-3'
@@ -53,7 +53,7 @@ export const columnsDefinitions = [
     cell: ({ getValue }) => <DataTableCellValue value={getValue<TNullable<IPhone>>()?.fullNumber} />
   },
   {
-    accessorKey: nameof<Member>('createdOn'),
+    accessorKey: nameof<TUseQueryGetMembersResponse>('createdOn'),
     header: 'Créé le',
     meta: {
       className: 'min-w-25 px-3'
@@ -67,34 +67,18 @@ export const columnsDefinitions = [
       </span>
     )
   },
-] as ColumnDef<Member>[];
+] as ColumnDef<TUseQueryGetMembersResponse>[];
 
-export const MembersPageDataTable = () => {
+export const TUseQueryGetMembersResponsesPageDataTable = () => {
+
+  const { data } = useQueryGetMembers();
+
+  const members = data || [];
 
   return (
     <DataTable
       columns={columnsDefinitions}
-      data={[
-        {
-          createdOn: new Date(),
-          lastname: 'Dupont',
-          firstname: 'Jean',
-          id: '1',
-          address: {
-            countryCodeISO2: 'LU',
-            city: 'Luxembourg',
-            postalCode: 'L-1234',
-            street: 'Rue de la Paix',
-            number: '1'
-          }
-        },
-        {
-          createdOn: new Date(),
-          lastname: 'Durand',
-          firstname: 'Marie',
-          id: '2',
-        }
-      ]} />
+      data={members} />
   );
 
 };
