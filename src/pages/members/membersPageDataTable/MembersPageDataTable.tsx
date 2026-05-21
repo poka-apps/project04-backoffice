@@ -11,14 +11,14 @@ export const columnsDefinitions = [
     accessorKey: nameof<Member>('firstname'),
     header: 'Prénom',
     meta: {
-      className: 'min-w-25 px-3'
+      className: 'min-w-25 px-3 font-medium'
     }
   },
   {
     accessorKey: nameof<Member>('lastname'),
     header: 'Nom',
     meta: {
-      className: 'min-w-25 px-3'
+      className: 'min-w-25 px-3 font-medium'
     }
   },
   {
@@ -59,8 +59,12 @@ export const columnsDefinitions = [
       className: 'min-w-25 px-3'
     },
     cell: ({ getValue }) => (
-      dayjs(getValue<Date>())
-        .format('DD/MM/YYYY hh:mm')
+      <span className='text-gray-400'>
+        {
+          dayjs(getValue<Date>())
+            .format('DD/MM/YYYY hh:mm')
+        }
+      </span>
     )
   },
 ] as ColumnDef<Member>[];
