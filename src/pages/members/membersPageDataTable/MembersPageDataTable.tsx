@@ -74,14 +74,12 @@ export const columnsDefinitions = [
 
 export const MembersPageDataTable = () => {
 
-  const { data } = useQueryGetMembers();
-
-  const members = data || [];
+  const { members } = useQueryGetMembers();
 
   return (
     <DataTable
       columns={columnsDefinitions}
-      data={members} />
+      data={members.splice(0, 10)} />
   );
 
 };

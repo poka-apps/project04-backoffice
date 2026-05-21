@@ -33,10 +33,10 @@ export const useQueryGetMembers = () => {
   const refresh = () => refetch();
 
   return ({
+    members: data ?? [],
     isLoading,
     refresh,
-    error,
-    data
+    error
   });
 
 };
