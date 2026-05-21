@@ -2,6 +2,7 @@ import { useQueryGetMembers, type TUseQueryGetMembersResponse } from '@/hooks/qu
 import { DataTable, DataTableCellValue } from '@/components';
 import type { ColumnDef } from '@tanstack/react-table';
 import type { IAddress, IPhone } from '@/interfaces';
+import ReactCountryFlag from 'react-country-flag';
 import type { TNullable } from '@/types';
 import { nameof } from '@/functions';
 import dayjs from 'dayjs';
@@ -44,7 +45,18 @@ export const columnsDefinitions = [
         return <DataTableCellValue />;
       }
 
-      return <DataTableCellValue value={`${address.city} (${address.countryCodeISO2})`} />;
+      return (
+        <DataTableCellValue value={
+          <div className='flex items-center gap-1.5'>
+            <ReactCountryFlag
+              svg
+              countryCode={address.countryCodeISO2} />
+            <span>
+              {address.city}
+            </span>
+          </div>
+        } />
+      );
     }
   },
   {
@@ -79,7 +91,7 @@ export const MembersPageDataTable = () => {
   return (
     <DataTable
       columns={columnsDefinitions}
-      data={members.splice(0, 10)} />
+      data={members} />
   );
 
 };
