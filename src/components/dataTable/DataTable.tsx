@@ -13,7 +13,7 @@ export const DataTable = <TData, TValue>({ columns, data }: DataTableProps<TData
   const { getHeaderGroups, getRowModel } = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });
 
   return (
-    <div className='overflow-hidden rounded-md border'>
+    <div className='overflow-auto rounded-sm border max-h-[calc(100vh-130px)]'>
       <Table>
         <DataTableHeader value={getHeaderGroups()} />
         <DataTableBody
