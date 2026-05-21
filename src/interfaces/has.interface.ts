@@ -1,9 +1,8 @@
-import type { TItemType, TSortType } from '@/types';
-import type { LucideIcon } from 'lucide-react';
-import type { ReactNode } from 'react';
-import type { IBrand } from './models.interface';
-import type { IPhone } from './phone.interface';
 import type { IAddress } from './address.interface';
+import type { IPhone } from './phone.interface';
+import type { LucideIcon } from 'lucide-react';
+import type { TSortType } from '@/types';
+import type { ReactNode } from 'react';
 
 export interface IHasOptPassword<T = string> {
   password?: T;
@@ -195,30 +194,6 @@ export interface IHasOptDate<T = Date> {
 
 export interface IHasDate<T = Date> {
   date: T;
-}
-
-export interface IHasOptItemType<T = TItemType> {
-  itemType?: T;
-}
-
-export interface IHasItemType<T = TItemType> {
-  itemType: T;
-}
-
-export interface IHasOptBrandId<T = string> {
-  brandId?: T;
-}
-
-export interface IHasBrandId<T = string> {
-  brandId: T;
-}
-
-export interface IHasOptBrands<T = IBrand> {
-  brands?: T[];
-}
-
-export interface IHasBrands<T = IBrand> {
-  brands: T[];
 }
 
 export interface IHasOptType<T = string> {

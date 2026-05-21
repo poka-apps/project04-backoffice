@@ -1,5 +1,6 @@
 export * from './hookFormProps.interface';
 export * from './paginatedData.interface';
+export * from './nomenclature.interface';
 export * from './paginable.interface';
 export * from './address.interface';
 export * from './models.interface';
