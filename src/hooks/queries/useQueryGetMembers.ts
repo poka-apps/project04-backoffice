@@ -7,6 +7,7 @@ import type {
   IHasCreatedOn,
   IHasFirstname,
   IHasOptPhone,
+  IHasOptEmail,
   IHasId,
 } from '@/interfaces';
 
@@ -14,6 +15,7 @@ export type TUseQueryGetMembersResponse =
   IHasId &
   IHasFirstname &
   IHasOptLastname &
+  IHasOptEmail &
   IHasOptNickname &
   IHasOptAddress &
   IHasOptPhone &

@@ -64,7 +64,15 @@ export const columnsDefinitions = [
     cell: ({ getValue }) => <DataTableCellValue value={getValue<TNullable<IPhone>>()?.fullNumber} />,
     header: 'Téléphone',
     meta: {
-      className: 'min-w-25 w-full px-3'
+      className: 'min-w-25 px-3'
+    }
+  },
+  {
+    accessorKey: nameof<TUseQueryGetMembersResponse>('email'),
+    cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
+    header: 'Email',
+    meta: {
+      className: 'min-w-25 px-3 w-full'
     }
   },
   {
