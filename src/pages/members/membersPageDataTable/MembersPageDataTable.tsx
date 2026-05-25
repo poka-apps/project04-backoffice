@@ -1,5 +1,5 @@
 import { useQueryGetMembers, type TUseQueryGetMembersResponse } from '@/hooks/queries';
-import { DataTable, DataTableCellValue } from '@/components';
+import { DataTable, DataTableCellHeader, DataTableCellValue } from '@/components';
 import type { ColumnDef } from '@tanstack/react-table';
 import type { IAddress, IPhone } from '@/interfaces';
 import ReactCountryFlag from 'react-country-flag';
@@ -11,7 +11,11 @@ export const columnsDefinitions = [
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('firstname'),
     cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
-    header: 'Prénom',
+    header: () => (
+      <DataTableCellHeader
+        sortBy={nameof<TUseQueryGetMembersResponse>('firstname')}
+        title='Prénom' />
+    ),
     meta: {
       className: 'min-w-25 px-3 font-medium'
     }
@@ -19,7 +23,11 @@ export const columnsDefinitions = [
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('lastname'),
     cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
-    header: 'Nom',
+    header: () => (
+      <DataTableCellHeader
+        sortBy={nameof<TUseQueryGetMembersResponse>('lastname')}
+        title='Nom' />
+    ),
     meta: {
       className: 'min-w-25 px-3 font-medium'
     }
@@ -27,7 +35,11 @@ export const columnsDefinitions = [
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('nickname'),
     cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
-    header: 'Surnom',
+    header: () => (
+      <DataTableCellHeader
+        sortBy={nameof<TUseQueryGetMembersResponse>('nickname')}
+        title='Surnom' />
+    ),
     meta: {
       className: 'min-w-25 px-3'
     }
@@ -70,17 +82,22 @@ export const columnsDefinitions = [
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('email'),
     cell: ({ getValue }) => <DataTableCellValue value={getValue()} />,
-    header: 'Email',
+    header: () => (
+      <DataTableCellHeader
+        sortBy={nameof<TUseQueryGetMembersResponse>('email')}
+        title='Email' />
+    ),
     meta: {
       className: 'min-w-25 px-3 w-full'
     }
   },
   {
     accessorKey: nameof<TUseQueryGetMembersResponse>('createdOn'),
-    header: 'Créé le',
-    meta: {
-      className: 'min-w-25 px-3'
-    },
+    header: () => (
+      <DataTableCellHeader
+        sortBy={nameof<TUseQueryGetMembersResponse>('createdOn')}
+        title='Créé le' />
+    ),
     cell: ({ getValue }) => (
       <span className='text-gray-500'>
         {
@@ -88,7 +105,10 @@ export const columnsDefinitions = [
             .format('DD/MM/YYYY hh:mm')
         }
       </span>
-    )
+    ),
+    meta: {
+      className: 'min-w-25 px-3'
+    }
   },
 ] as ColumnDef<TUseQueryGetMembersResponse>[];
 
