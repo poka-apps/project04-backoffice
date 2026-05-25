@@ -4,6 +4,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 import type { IAddress, IPhone } from '@/interfaces';
 import ReactCountryFlag from 'react-country-flag';
 import type { TNullable } from '@/types';
+import { useQueryParams } from '@/hooks';
 import { nameof } from '@/functions';
 import dayjs from 'dayjs';
 
@@ -114,7 +115,8 @@ export const columnsDefinitions = [
 
 export const MembersPageDataTable = () => {
 
-  const { members } = useQueryGetMembers();
+  const { values: [sortBy, sortType] } = useQueryParams({ names: ['sortBy', 'sortType'] });
+  const { members } = useQueryGetMembers({ sortBy, sortType } as any);
 
   return (
     <DataTable

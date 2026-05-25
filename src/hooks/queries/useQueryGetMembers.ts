@@ -3,9 +3,11 @@ import { axios } from '@/config';
 import type {
   IHasOptNickname,
   IHasOptLastname,
+  IHasOptSortType,
   IHasOptAddress,
   IHasCreatedOn,
   IHasFirstname,
+  IHasOptSortBy,
   IHasOptPhone,
   IHasOptEmail,
   IHasId,
@@ -21,13 +23,13 @@ export type TUseQueryGetMembersResponse =
   IHasOptPhone &
   IHasCreatedOn;
 
-export const useQueryGetMembers = () => {
+export const useQueryGetMembers = (params?: IHasOptSortBy & IHasOptSortType) => {
 
   const { data, isLoading, error, refetch } = useQuery<TUseQueryGetMembersResponse[]>({
-    queryKey: ['members'],
-    queryFn: ({ queryKey: [_] }) => (
+    queryKey: ['members', params],
+    queryFn: ({ queryKey: [_, _params] }) => (
       axios
-        .get<TUseQueryGetMembersResponse[]>(`/members`)
+        .get<TUseQueryGetMembersResponse[]>(`/members`, { params: _params })
         .then(l => l.data)
     ),
   });
